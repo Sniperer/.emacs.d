@@ -1,0 +1,2 @@
+;; Generated package description from llm.el  -*- no-byte-compile: t -*-
+(define-package "llm" "0.22.0" "Interface to pluggable llm backends" '((emacs "28.1") (plz "0.8") (plz-event-source "0.1.1") (plz-media-type "0.2.1")) :commit "600ea5e6c01790d267bb72e501a8d45818c6dcc7" :authors '(("Andrew Hyatt" . "ahyatt@gmail.com")) :maintainer '("Andrew Hyatt" . "ahyatt@gmail.com") :url "https://github.com/ahyatt/llm")

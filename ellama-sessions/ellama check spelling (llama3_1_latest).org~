@@ -1,0 +1,26 @@
+** User:
+Context:
+[[/root/notes/proof complexity/src/Nullstellensatz.tex][/root/notes/proof complexity/src/Nullstellensatz.tex]] [[elisp:(display-buffer "*ellama-quote-Bhhdhu*")][show]]
+
+check spelling
+
+** Ellama:
+I've reviewed the text and didn't find any spelling errors. However, I
+did notice that there's a small typo in "Fix an algebraic structure
+$\mathbb{R}$ and a set of polynomials $\mathcal{F} = \{F_i\}.$ Let $d
+\geq 0$."
+
+The correct notation for the real numbers is indeed $\mathbb{R}$, but
+it's more common to write "Let d be a non-negative integer" instead of
+just "$d \geq 0$".
+
+Here are the four points as they were:
+
+1. $D(1) = 1$
+2. $D$ is linear, which means $D(X + Y) = D(X) + D(Y)$.
+3. $D(Q\cdot F_i) = 0$ for any polynomial $Q$ and $F_i \in \mathbb{F}$
+such that $deg(Q) + deg(F_i) \leq d$
+4. $D(x_i^2Q) = D(x_iQ)$, where $x$ is a variable in $R[x_1, x_2, ...,
+x_n]$ and $deg(Q) < d-1$.
+
+** User:

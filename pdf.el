@@ -1,0 +1,9 @@
+(pdf-tools-install)
+
+(setq TeX-view-program-selection '((output-pdf "PDF Tools")))
+(add-hook 'TeX-after-compilation-finished-functions
+          #'TeX-revert-document-buffer)
+
+(add-hook 'pdf-view-mode-hook 'pdf-view-fit-width-to-window)
+(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+(setq TeX-source-correlate-start-server t)

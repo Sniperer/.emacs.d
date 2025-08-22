@@ -1,0 +1,115 @@
+ls
+clear
+ls
+cd ~/Documents/handin_CG/project2/
+ls
+./main.exe 
+clear
+ls
+./main
+./main.exe 
+for 
+ls
+clear
+ls
+cd ~/Documents/handin_CG/project2/
+ls
+clear
+ls
+ls -al
+clear-scrollback
+find-file-other-window main.cpp
+ls
+ls -al
+cls
+fopen ParGS.hpp 
+cd ~/Documents/handin_CG/project2/
+ls
+fopen ParGS.hpp 
+fopen ParGS.hpp
+find-file ParGS.hpp
+clean-scrollback
+clear-scrollback
+clear-scrollback
+cd ~/.emacs.d/
+ls
+cd eshell
+ls
+find-file alias
+cls
+cls
+ls
+ls
+ff test.cpp
+ls
+ff test2.cpp 
+find-file-other-window ~/.emacs.d/eshell/alias
+ls
+ff test.cpp
+ls
+touch notes.md
+ff notes.md
+apt install markdown
+ls
+touch BeDOZa.hpp
+ff BeDOZa.hpp 
+ls
+g++ main.cpp -lgmpxx -lgmp
+g++ main.cpp -lgmpxx -lgmp
+g++ main.cpp -lgmpxx -lgmp
+./a.out 
+g++ main.cpp -lgmpxx -lgmp
+./a.out 
+g++ main.cpp -lgmpxx -lgmp
+./a.out 
+g++ main.cpp -lgmpxx -lgmp
+./a.out 
+cls
+g++ main.cpp -lgmpxx -lgmp
+g++ main.cpp -lgmpxx -lgmp
+g++ main.cpp -lgmpxx -lgmp
+g++ main.cpp -lgmpxx -lgmp
+cls
+g++ main.cpp -lgmpxx -lgmp
+g++ main.cpp -lgmpxx -lgmp
+g++ main.cpp -lgmpxx -lgmp
+g++ main.cpp -lgmpxx -lgmp
+./a.out 
+g++ main.cpp -lgmpxx -lgmp
+g++ main.cpp -lgmpxx -lgmp
+./a.out 
+g++ main.cpp -lgmpxx -lgmp
+./a.out 
+g++ main.cpp
+g++ main.cpp
+./a.out 
+g++ main.cpp
+./a.out 
+g++ main.cpp
+./a.out 
+cls
+touch ElGamal.hpp
+ff ElGamal.hpp 
+g++ main.cpp
+g++ main.cpp
+./a.out 
+g++ main.cpp
+./a.out 
+g++ main.cpp
+./a.out 
+g++ main.cpp
+./a.out 
+0
+g++cls
+cls
+g++ main.cpp
+g++ main.cpp
+cls
+g++ main.cpp
+g++ main.cpp
+./a.out 
+g++ main.cpp
+./a.out 
+ls
+touch BeDOZa.py
+ff BeDOZa.py 

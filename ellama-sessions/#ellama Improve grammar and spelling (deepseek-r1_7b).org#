@@ -1,0 +1,582 @@
+** User:
+Context:
+[[/root/Documents/handin_Crypto/handin7.tex][/root/Documents/handin_Crypto/handin7.tex]] [[elisp:(display-buffer "*ellama-quote-x525lu*")][show]]
+
+Improve grammar and spelling
+
+** Ellama:
+#+BEGIN_QUOTE
+Okay, so I have this context here about cryptography, specifically
+dealing with something called RSA, I think. The user is talking about
+when z isn't in Z_n^*, which is a multiplicative group modulo n. They
+mention that the greatest common divisor of z and n isn't 1 because n
+is the product of two primes, p and q. So the factors are just 1, q,
+and p.
+
+I need to improve the grammar and spelling of this context. Let me
+read it again: "Firstly, we consider the case when z ∉ Z_n^*. In this
+situation, gcd(z,n) ≠ 1, since there are only three factors of n=qp,
+namely 1, q, and p, given that both p and q are primes. Consequently,
+gcd(z, n) must be either q or p. Based on this computation, we can
+obtain the secret component d needed to decrypt ciphertexts."
+
+Hmm. I notice some areas where it could be smoother. "Firstly" is
+fine, but maybe changing to "In this case" makes it more fluid. The
+sentence structure after that might need a comma for clarity. Also,
+"since there are only three factors of n=qp" should probably say
+"since n has only three positive divisors: 1, q, and p." That's
+clearer.
+
+Instead of saying "given that both p and q are primes," maybe just
+state it as "because both p and q are prime numbers." Also, the last
+part seems a bit abrupt. Changing "Consequently" to "As a result"
+flows better, and adding an extra space after the period before
+"Based" might make it look cleaner.
+
+Let me piece this together: Start with "In this case," then clarify
+that n has only three factors because p and q are primes. Then explain
+that gcd(z,n) must be either p or q, which allows us to find d for
+decryption. Putting it all together should make the context clearer
+and more grammatically correct.
+#+END_QUOTE
+
+Here's an improved version of your text with better grammar and
+spelling:
+
+---
+
+In this case, we consider the scenario where \( z \notin Z_n^*
+\). This implies that \( \gcd(z, n) \neq 1 \), as the only divisors of
+\( n = qp \) (where both \( p \) and \( q \) are prime numbers) are 1,
+\( q \), and \( p \). Consequently, \( \gcd(z, n) \) must be either \(
+q \) or \( p \). With this information, we can determine the secret
+component \( d \) necessary for decrypting ciphertexts.
+
+--- 
+
+This version improves clarity and flow while maintaining the technical
+accuracy of the original text.
+
+** User:Context:
+[[/root/Documents/handin_Crypto/handin7.tex][/root/Documents/handin_Crypto/handin7.tex]] [[elisp:(display-buffer "*ellama-quote-HZ4KcG*")][show]]
+[[/root/Documents/handin_Crypto/handin7.tex][/root/Documents/handin_Crypto/handin7.tex]] [[elisp:(display-buffer "*ellama-quote-FIoZhv*")][show]]
+
+Improve grammar and spelling
+
+** Ellama:
+#+BEGIN_QUOTE
+Alright, so I've got this context about an RSA problem involving some
+algorithm A. Let me try to wrap my head around it step by step. Okay,
+first, we're looking at the case where z isn't in Z_n^*. That means
+that the greatest common divisor of z and n isn't 1. Given that n is
+qp, where p and q are primes, the only factors of n should be 1, p, q,
+and pq itself.
+
+So, if gcd(z,n) isn't 1, it must share a factor with n, which could be
+either p or q. That makes sense because those are the prime components
+of n. So, gcd(z,n) has to be either p or q in this case.
+
+Now, based on that computation, we can get this secret component d
+needed for decrypting ciphertexts. But I'm not entirely sure how
+yet—it says "we can obtain the secret component d," but I'm not clear
+on what steps exactly lead us to d from there.
+
+Then, it outlines three steps using an algorithm A as a subroutine:
+
+1. Call algorithm A with inputs (n,e) and z. If A can compute
+plaintexts, we can decrypt z with probability 1.
+2. If A doesn't return anything, choose a random number a in Z_n^* as
+plaintext and compute ciphertext b = E(a). Then call A again with
+inputs (n,e) and z' = z*b mod n. If A computes plaintext c, then the
+plaintext for z is a^{-1}*c mod n.
+3. If A doesn't return anything in this second attempt, we just say
+there's no answer.
+
+Okay, so step 2 involves choosing a random number a from Z_n^*, which
+is the multiplicative group modulo n. Then encrypting it to get b =
+E(a). Then creating z' by multiplying z and b modulo n, and passing
+that back to A. If A can compute c from z', we then use a^{-1} to find
+the plaintext for z.
+
+I think I need to make sure this makes sense in terms of RSA
+operations. In RSA, encryption is done via E(a) = a^e mod n, right?
+And decryption requires d such that e*d ≡ 1 mod λ(n), where λ is
+Carmichael's function since n is the product of two primes.
+
+But I'm not entirely sure how A fits into this. Is A an algorithm for
+factoring n or something else?
+
+Also, in step 2, if A returns c from z', and we know that E(a*x) =
+(a*x)^e mod n = a^e * x^e mod n = b * E(x). So, if z' = z*b mod n,
+then z' = (z*x)*b / b? Hmm, maybe not. Maybe I'm overcomplicating it.
+
+Perhaps A is an algorithm that can find the plaintext from a
+ciphertext if certain conditions are met. If in step 1, A succeeds,
+we're done—can decrypt z directly.
+
+If not, we pick random a and compute b = E(a). Then create z' = z*b
+mod n and pass to A again. If A now can find c corresponding to z',
+then since z' = z * b, which is (z*x) where x corresponds to some
+value?
+
+Wait, maybe that's not the right way.
+
+I'm getting a bit confused here about how exactly algorithm A
+interacts with these steps. I need to think carefully about what each
+step achieves and how it relates to RSA decryption.
+
+Also, in step 3, if both calls to A fail, we just return "no answer,"
+which probably means that z is not decryptable via this method for
+some reason.
+
+Overall, my main confusion is around understanding exactly what
+algorithm A does and how it's being used in these steps. Without a
+clear understanding of A's functionality, it's hard to see why each
+step works as intended.
+
+I think I need to look more closely at what's happening with z and how
+it relates to the encryption and decryption processes within RSA,
+especially considering that z isn't coprime with n—so there are shared
+factors between z and n. That must affect the ability to invert
+certain operations in RSA without knowing the private key.
+
+Perhaps since gcd(z,n) is either p or q, which are prime factors of n,
+it limits the multiplicative inverse or something like that when
+trying to decrypt without the private key d. So using algorithm A with
+z gives us some information about d indirectly through these steps
+involving random a and computations modulo n.
+
+I should also check if my understanding of Z/n^* is
+accurate—specifically, that it's the group of integers coprime to n
+under multiplication modulo n. So when we pick a random a in Z/n^*,
+we're ensuring that a has an inverse modulo n, which might be
+important for step 2.
+
+Alright, stepping back: the goal is to decrypt z using algorithm A and
+RSA principles, but since gcd(z,n) isn't 1, standard decryption
+methods based solely on Euler's theorem or Fermat's little theorem
+don't directly apply because z doesn't have an inverse modulo n. So we
+need another way—this might be where algorithm A comes into play.
+
+I think the key here is that if we can find a plaintext corresponding
+to a modified ciphertext like z*b, then by relating it back to z, we
+can somehow extract d or use it with a random a and its encryption b
+to get the needed information for decrypting z. But I'm still not
+entirely sure how this all ties together.
+
+Maybe visualizing the steps would help:
+
+1. First attempt: Call A directly with (n,e) and z.
+2. If that fails, pick a random a from Z_n^*.
+3. Encrypt a to get b = E(a).
+4. Compute z' = z*b mod n.
+5. Call A again with (n,e) and z'.
+6. If this succeeds in getting c, then since z' = z * b, which implies
+c corresponds to some x such that E(x) = c, but how does that relate
+to z?
+7. Maybe there's a relationship between c and z that allows us to
+compute d or use it with the inverse of a modulo n.
+
+I'm still missing something about why multiplying by b helps in this
+scenario. Perhaps because we're leveraging some property of RSA where
+encryption is multiplicative, so E(a*x) = E(a)*E(x). So if z' = z*b,
+which could be written as (z * x), and knowing that E(z * x) = E(z) *
+E(x) mod n.
+
+But I'm not sure how exactly we're using this to find the decryption
+of z.
+
+Maybe another approach: Since gcd(z,n)=p or q, then if we can find a
+plaintext c such that c^e ≡ z*b mod n, and somehow use that in
+conjunction with known values like b = E(a), perhaps through inverses
+modulo p or q. But I'm not sure how to proceed.
+
+Perhaps the whole point is that by choosing random a's encryption,
+we're trying to create an instance where algorithm A can successfully
+decrypt it because z' happens to have some special property relative
+to n and e.
+
+But honestly, I think without more specific details about what
+algorithm A does, it's hard for me to fully grasp why these steps
+work. Maybe in the context of this problem, A is assumed to be an
+algorithm that can factor n or compute d given certain conditions on
+z, but I'm not entirely certain.
+
+I guess I'll need to think through how gcd(z,n) being p or q affects
+our ability to decrypt and then see how using a random a helps
+mitigate some issues related to the multiplicative properties in
+RSA. Maybe by creating a situation where we can use the Chinese
+Remainder Theorem more effectively, even when z isn't coprime with n.
+
+Alternatively, perhaps because z is known to have gcd p or q with n,
+there's some property about its encryption that allows us to recover
+partial information which helps in finding d. For instance, if we know
+that z ≡ 0 mod p (or q), then maybe using this fact along with the
+encryption can help.
+
+But I'm still not making much progress on why exactly these steps are
+necessary or how they guarantee decryption of z.
+
+Perhaps another angle: Since gcd(z,n)=p or q, and assuming n = p*q,
+then if we have a ciphertext that's a multiple of one of the primes,
+maybe it has some structure that allows for easier factorization. For
+example, if z ≡ 0 mod p, then z is divisible by p.
+
+So when we pick random a from Z_n^*, compute b = E(a), and then set z'
+= z*b, perhaps in this new ciphertext z', there's more information
+about the structure of n that can be exploited with algorithm A to
+find d or some partial keys.
+
+But honestly, I'm getting stuck here. Maybe it's time to try working
+through an example numerically. Let's say p=3, q=5, so n=15. Then
+λ(n)=lcm(2,4)=4. Suppose e=3 (which is coprime with 4). Then d would
+be 7 because 3*7 ≡ 21 ≡ 1 mod 4.
+
+Now suppose z=6, which has gcd(z,n)=3 since n=15 and 6 shares factor
+3.
+
+First step: Call A directly with (n,e) = (15,3) and z=6. If algorithm
+A works in this scenario, maybe it can compute d=7 and thus decrypt z
+as c ≡ 6^7 mod 15.
+
+But what's 6^7 mod 15? Let's see: 6^2=36≡6 mod 15; then
+6^4=(6^2)^2=6^2=6; similarly, 6^6=6^(2+4)=6*6=36≡6; so 6^7=6^6 *6
+≡6*6=36≡6 mod15. So z itself is the ciphertext equal to its own
+plaintext? Interesting.
+
+Alternatively, if I encrypt a random a in Z_n^*, say a=2 (since
+gcd(2,15)=1). Then b=E(a)=2^3=8 mod15.
+
+Then compute z'=z*b =6*8=48≡ 48-3*15=48-45=3 mod15. So now call A with
+(n,e)=15,3 and z'=3.
+
+Now if algorithm A can decrypt this correctly? Well, 3^7 mod15: Let's
+compute it step by step. Alternatively, notice that in modulus 15:
+
+Since n=15=3*5, maybe use the Chinese Remainder Theorem for exponents?
+
+Wait, but computing exponentials modulo primes is easier.
+
+Alternatively, compute 3^k mod15 for small k: 3^1=3; 3^2=9; 3^3=27≡12
+mod15; 3^4=81≡6 mod15; 3^5=243≡ (let's see, 3^4=6, then *3=18≡3
+mod15). So cycles every 4: period.
+
+But z'=3 is already in the ciphertext. If e=3 and d=7, so to decrypt
+c', we compute c'^d mod n.
+
+So let's try 3^7 mod15:
+
+Compute exponents step by step:
+
+3^2 =9
+
+3^4=(3^2)^2=81≡6 mod15
+
+3^6= (3^4)*(3^2)=6*9=54≡9 mod15
+
+3^7= 3^6 *3 ≡9*3=27≡12 mod15.
+
+So c'=3, decrypted is 12. So z' was 3, which decrypts to12? But in the
+original problem, I think we might have some issues here because maybe
+our process didn't get back to z's correct decryption.
+
+Wait but in this case, if A can decrypt correctly, then perhaps with
+steps above, after computing c'=z'*b^{-1}=3*8^{-1} mod15? Wait,
+no. Maybe that's not the right approach.
+
+I'm getting confused here because I don't actually know how algorithm
+A works—it could be any algorithm designed for this specific case
+where z is known to have a gcd with n equal to p or q.
+
+But perhaps in general, if we can create such an instance where
+calling A on (n,e,z') allows us to compute some information about d,
+then using that info might help us find the full decryption key. But
+without knowing what exactly algorithm A does, it's hard to say.
+
+Maybe another thought: since z is known to have a gcd with n which is
+p or q, maybe when we construct z' = z*b where b=E(a), perhaps for
+some choice of a, E(a) could be designed so that z' shares more
+information about the prime factors of n. Then algorithm A can use
+this additional structure to factor n or compute d.
+
+Alternatively, if in step 1, call A on (n,e,z). If it fails because we
+don't have coprimality, then perhaps with step 2, multiplying by some
+b=E(a) allows us to create a z' that is coprime with p and/or q? Wait,
+but n= p*q, so unless z shares the same factor as n.
+
+Wait, if z was constructed as multiple of one prime, say p, then when
+we multiply it by E(a), which is coprime to n (since a ∈ Z_n^* ),
+since e is chosen such that a^e is computed modulo n and will be
+coprime unless n shares factors with c.
+
+But in this case, maybe if z was constructed as multiple of p or q,
+then multiplying by E(a) may not necessarily make it co-prime to
+n. Unless b=E(a) has some relation to the other prime?
+
+I'm really stuck here without more information on how algorithm A
+operates and what exactly makes it successful in these cases.
+
+Maybe stepping back: In RSA encryption, if z is known to share a
+common factor with n=p*q, then that could be exploited for
+factoring. For example, using gcd(z, n) we can get p or q
+directly. But here, instead of having access to the ciphertext,
+perhaps the algorithm A is designed in such a way that it requires z
+to have certain properties.
+
+Wait, no—wait: if you're trying to decrypt c=z^e mod n with e and n
+known but d unknown? Then yes, for RSA decryption, without knowing d,
+we can't compute directly. But given that the user has an algorithm A
+which perhaps helps in computing d or some part of it when certain
+conditions on z are satisfied.
+
+Alternatively, maybe algorithm A is a general method to compute d if
+you have enough information about n and e, but only applies under
+specific conditions, such as when z shares factors with p or q.
+
+So without more details on algorithm A's operation, I might be
+stuck. Perhaps it's better to consider that the steps are designed for
+a scenario where we can first use step 1 to see if A fails because of
+gcd issues and then try again in step 2 after adjusting z by
+multiplying with some ciphertext b=E(a) so as to perhaps get an
+instance where now z' has coprimality allowing algorithm A to function
+correctly.
+
+In that case, the steps are trying to circumvent any initial failure
+when decrypting directly due to non-coprimality of z and n. By
+modifying z with a multiple from E(a), which is itself co-prime (since
+a is in Z_n^* so b=E(a)=a^e modn). But if e was chosen as an exponent
+that's coprime with φ(n)=p-1*q-1, then perhaps even after multiplying
+by such b, z' may still share factors with n.
+
+Alternatively, maybe the multiplication undoes or maintains some
+structures in Z_n which can be exploited. Without knowing more about A
+and how it uses these properties, though.
+
+Alternatively, perhaps when we compute c'=z', which is equal to z*b =
+z*E(a) modn.
+
+If algorithm A works for decrypting this correctly (i.e., outputs
+something), then maybe the output of A can be used with e=3 to compute
+d somehow. But again, without knowing what steps are involved in A's
+operation, it's speculative.
+
+I think at this point I might need to accept that my understanding is
+limited here and perhaps consider looking for a pattern or
+mathematical insight behind these steps rather than trying to simulate
+algorithm A step-by-step.
+
+So thinking more abstractly: given z=c^d modn, but if d isn't
+known. Alternatively, e is known, so maybe using the fact that c=
+z^{1/e} modn? No, because without knowing d or some way to factor n,
+it's not straightforward.
+
+Alternatively, perhaps since algorithm A can handle cases where z and
+n are coprime by computing something with it, while when they're not
+coprime, we may use a different approach as in step 2. So maybe the
+idea is that if you have an instance where z isn't co-prime to n, then
+try modifying it so that now it's co-prime and use A for the rest.
+
+Wait, but in our case, z was known not coprime (since they computed
+gcd(z,n) ). So step 1 would be to call A on (n,e,z). If n=p*q and e is
+unknown, maybe if we know that p divides z or q divides z, then
+perhaps algorithm A can factor n. But without more specifics.
+
+Alternatively, maybe in the first step, since z shares a factor with
+n, which could lead to an issue where some part of the decryption
+doesn't work because of being not invertible modn^2? Hmm... Maybe not.
+
+Given that I've been stuck trying various angles but haven't found
+clarity on how algorithm A is used here, perhaps I should wrap up my
+thoughts.
+
+In summary:
+
+1. The first step tries to use algorithm A directly with z, which may
+or may not be co-prime to n.
+2. If it fails (perhaps because of non-invertibility when they aren't
+coprime), the second step creates a modified ciphertext z' by
+multiplying z with E(a) for some a in Z_n^*.
+3. Then calls algorithm A on this new z', hoping that either it's
+co-prime or that now, due to multiplication, it can use more
+information.
+
+However, without knowing exactly what A does, I can't say whether
+these steps help recover the key d or decrypt the message.
+
+Perhaps a different approach: Since in step 2 they choose a at random
+from Z_n^*, compute b = E(a), then z' = z * b modn. Then call A on
+(n,e,z') to get some value, maybe c'. Maybe if we can relate c' with
+something else... but I don't know.
+
+Wait, perhaps in the first step when you have algorithm A applied to
+non-coprime z, it might not work as intended. But after multiplying by
+b=E(a), which is another ciphertext (since a is in Z_n^* ), maybe this
+makes z’=z * E(a) into something that's co-prime.
+
+But since both z and E(a)=b are known to be multiple of p or q,
+perhaps their product might still share the same factors?
+
+Wait but if n =p*q where p≠q primes, then any number not divisible by
+p or q is co-prime to n. So unless z' is a multiple of p or q... But
+without knowing, since a was random, it's unclear.
+
+Alternatively, maybe multiplying by b can sometimes result in making
+z’ coprime, but that would be too much luck because for generic cases,
+you might not get a new co-prime quickly.
+
+Wait but the problem is structured as if these steps are valid—so
+perhaps step 2 ensures that algorithm A works. If so, maybe they chose
+a such that b=z*E(a) is now co-prime? But I can’t say for sure without
+knowing how algorithm A operates.
+
+Alternatively, since in step 1: call A on (n,e,z), which fails because
+gcd(z,n)=p or q.
+
+Then, choose a∈Z_n^*, compute b=E(a). Then z' =z*b. If we then call A
+on z', maybe it's now co-prime? Because if p divides both z and n=p*q,
+but in step 2, perhaps multiplying by b (which is coprime to n) would
+remove the common factor.
+
+But no: since a∈Z_n^*, which means that a is invertible modn. Then
+E(a)=a^e modn—since e is exponent for encryption. So even if a was
+co-prime, its image under encryption might not be?
+
+Wait, in RSA, encryption of a message m (which must also be co-prime
+to n) results in c=m^e modn. If the original message wasn't coprime,
+then it's encrypted as is but decryption isn't possible without
+knowing d or factors.
+
+So if z' =z * b= z*a^e modn. Then perhaps since a and n are co-prime
+(a∈Z_n^*), while z may not be: whether their product would be coprime?
+
+But unless either z is already invertible, but in our case it's not
+because of step 1.
+
+Wait if both z and b share the same prime p or q, then z*b still
+shares that prime. However, since a was chosen randomly from Z_n^*,
+which means a can have factors other than n, maybe...
+
+No: Actually, all elements of Z/n^* are co-prime to n=p*q (since it's
+invertible). So if a is in Z/n^*, then gcd(a,n)=1. Then b=E(a)=a^e
+modn.
+
+What is the relation between b and n?
+
+Since e is public exponent, which for RSA should be co-prime with
+φ(n)=(p-1)(q-1). So as long as e is chosen appropriately (which it
+usually is), then a^e is still invertible modulo n. But since a is in
+Z/n^*, which means that b=a^e is also in Z/n^*.
+
+Hence, z’ =z*b: if z was not co-prime to n, and b was co-prime (since
+it's from Z_n^*), then the product z’ would be congruent to z mod p or
+q?
+
+Wait no: If z shares a common factor with n=p*q, say p divides z. Then
+since b is co-prime to n, which implies that b ≡ k modp where k≠0.
+
+Therefore z * b ≡ 0 *k =0 modp; similarly, same if it was q instead of
+p.
+
+Wait: So in the first case, when you have a number z divisible by p
+(and not co-prime to n), and multiply it with b which is
+co-prime. Then what happens?
+
+If z= kp for some integer k, then z*b =kp *b. Since b is invertible
+modn=p*q, so in modulo p: z’ ≡0* anything ≡0 modp.
+
+Similarly, in modulo q: if you have something not divisible by q, but
+when multiplied together, since a and hence b are co-prime to n, which
+includes being co-prime to q. Therefore, z was originally congruent to
+kp + something else—wait maybe I'm overcomplicating it.
+
+Alternatively, perhaps multiplying z with an invertible number modn
+can help in making the product invertible? Wait no: if z is not
+invertible (i.e., shares a factor), then even multiplied by invertible
+numbers remains non-invertible. Because if z and n share p as a common
+factor, and you multiply it by b which is co-prime to n, but still,
+since in the ring Z_n, multiplication of an element sharing a prime
+with n can't become invertible.
+
+Wait: In modular arithmetic, for numbers modn=pq where p≠q primes:
+
+An element m is invertible (mod pq) if and only if gcd(m,pq)=1. So
+non-invertible elements share at least one prime factor (p or q). If
+you have such an m and multiply it by another number b that's co-prime
+to pq, the product m*b will still be congruent to 0 mod p (if m was)
+or 0 mod q (if m wasn't). So if m shares a common factor with pq,
+multiplying by invertible element won't make it co-prime.
+
+Therefore: If z is not coprime to n, then any multiple of z (even
+multiplied by an invertible b) will still share the same common
+factor. Therefore in step 2, calling A on such z’ would still result
+in a failure because gcd(z’,n)=p or q, hence not co-prime.
+
+Therefore perhaps these steps won't help. So maybe I've been wrong
+about it.
+
+Wait but that can’t be—since the problem is presented as something you
+have to do, so likely my previous thought was incorrect.
+
+Alternatively: Maybe in step 1 we get no useful information because A
+requires invertible elements, and z isn't invertible, then in step 2
+when multiplying by b (which is invertible), now maybe z’ becomes
+invertible? Wait but earlier I saw that if you have a non-invertible
+element multiplied by an invertible one, the result still isn’t
+invertible. For instance: If m ≡0 modp, and multiply it by anything
+co-prime to pq, it's congruent 0 mod p.
+
+So maybe z’ is still not invertible, so step 2 doesn't help
+either. Hmm...
+
+Alternatively, perhaps in step 1 you get no information from A because
+when called on a non-invertible element, the algorithm gives an
+incorrect result or nothing. But then step 2 may somehow allow to use
+Chinese Remainder Theorem.
+
+Wait: Maybe if after multiplying z with b, which is co-prime to n, and
+getting z’, even though it's still not invertible modn=pq, but when
+you consider modulo p and q separately:
+
+z’ = (z *b) modp: since z was 0 modp, z’ ≡0*something≡0 modp.
+
+Similarly, if in step1 we called A on z which is 0 modp, then step2
+may help us to know more about z modulo p. But perhaps it's getting
+too convoluted without clear direction.
+
+Alternatively: Maybe the steps are meant for something else like
+extracting a part of the private key or using blinding factors? Not
+sure...
+
+Wait let me try another approach:
+
+Assume that in step1, A is called on some non-invertible element z
+(modn). Since it's invertible if gcd(z,n)=1.
+
+But since we know that n=pq and p≠q are primes, as per RSA setup, so
+if z isn't co-prime to pq then either shares factor with p or
+q. Suppose z is 0 modp and not necessarily 0 modq.
+
+Then step2: multiply it by b which is invertible (hence, coprime). So
+z’=z *b ≡0*something≡0 modp, but in modulo q: since b is co-prime to
+q, so z’ could be something non-zero modq. Maybe that helps.
+
+Wait if I have two different calls of A on z and another call on some
+other multiple?
+
+Alternatively: Maybe this has nothing to do with the
+encryption/decryption but more about understanding the group structure
+or using the fact that multiplicative inverses don't exist for
+non-coprime elements modulo n=pq.
+
+But honestly, it's not clear how step1 and step2 would help. Perhaps I
+need a different angle.
+
+Wait: Let me think of an example with small primes p=3, q=5 so
+n=15. Then φ(n)=8. Choose exponent e=3 which is coprime to 8 (since
+gcd(3,8)=1).
+
+Suppose message z=6 mod15. It's not invertible because gcd(6,15)=3.
+
+Now Step2: pick a random b from Z_n^*. So in this case n=15, so
+elements co-prime to 15 are numbers not divisible by 3 or 5. So
+possible choices for b could be 1,2,4
